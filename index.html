@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU-xPuuRQ8FFVrNxJ0FbnRd3eapfSersCKqoABuGfsGuQOl560ui7teoA&s=10') no-repeat center center fixed;
+            background-size: cover; /* Cover the entire viewport */
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .text-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Black semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+            position: relative;
+            z-index: 2;
+        }
+
+        p {
+            font-size: 1.5em;
+            animation: fadeIn 2.5s;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .floating {
+            position: absolute;
+            z-index: 0; /* Make sure they stay behind the text */
+            animation: drift 15s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(200px, 200px); } /* Drift to the right and down */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Technology-themed floating objects */
+        .gear {
+            background: url('https://img.icons8.com/ios-filled/50/ffffff/gear.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .bracket {
+            background: url('https://img.icons8.com/ios-filled/50/ffffff/code.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .circuit {
+            background: url('https://img.icons8.com/ios-filled/50/ffffff/circuit.png') no-repeat center center;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h1>ICT Club Website Under Construction</h1>
+        <p>Please check back later!</p>
+    </div>
+
+    <script>
+        const createFloatingObject = () => {
+            const floatingDiv = document.createElement('div');
+            floatingDiv.className = 'floating';
+
+            // Randomly choose an icon for the floating object
+            const icons = ['gear', 'bracket', 'circuit'];
+            floatingDiv.classList.add(icons[Math.floor(Math.random() * icons.length)]);
+
+            // Set random size between 30px and 80px
+            const size = Math.random() * 50 + 30; // Size between 30px and 80px
+            floatingDiv.style.width = size + 'px';
+            floatingDiv.style.height = size + 'px';
+
+            // Random initial position
+            floatingDiv.style.left = Math.random() * window.innerWidth + 'px';
+            floatingDiv.style.top = Math.random() * window.innerHeight + 'px';
+
+            document.body.appendChild(floatingDiv);
+
+            // Remove the floating object after 15 seconds
+            setTimeout(() => floatingDiv.remove(), 15000);
+        };
+
+        // Create multiple floating objects
+        setInterval(createFloatingObject, 2000); // New object every 2 seconds
+    </script>
+</body>
+</html>
